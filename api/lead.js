@@ -39,7 +39,9 @@ module.exports = async function handler(req, res) {
       city = '',
       month = 'TBD',
       insta = '',
-      url = ''
+      url = '',
+      testEventCode = '',
+      test_event_code = ''
     } = req.body || {};
 
     const results = {
@@ -235,6 +237,16 @@ module.exports = async function handler(req, res) {
             }
           ]
         };
+
+        const activeTestCode =
+          testEventCode ||
+          test_event_code ||
+          req.query?.test_event_code ||
+          process.env.META_TEST_EVENT_CODE;
+
+        if (activeTestCode) {
+          eventPayload.test_event_code = activeTestCode;
+        }
 
         const metaUrl = `https://graph.facebook.com/v19.0/${PIXEL_ID}/events?access_token=${metaToken}`;
         const metaRes = await fetch(metaUrl, {
