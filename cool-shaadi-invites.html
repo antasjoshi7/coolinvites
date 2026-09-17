@@ -432,15 +432,36 @@ class Component extends DCLogic {
         stored.push({ coupleNames, phone, email, insta, city, month, ts: new Date().toISOString() });
         localStorage.setItem('cool_shaadi_leads', JSON.stringify(stored));
       } catch (err) {}
-      // Track Meta Pixel Lead event
+      // Unique Event ID for Meta Pixel + Conversions API deduplication
+      const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substring(2, 8);
+
+      // 1. Browser Meta Pixel Lead Event (with eventID for deduplication)
       try {
         if (typeof window.fbq === 'function') {
           window.fbq('track', 'Lead', {
             content_name: 'Wedding Inquiry Form',
             currency: 'INR',
             value: 3999
-          });
+          }, { eventID: eventId });
         }
+      } catch (e) {}
+
+      // 2. Server-Side Meta Conversions API (CAPI) via Vercel /api/capi
+      try {
+        fetch('/api/capi', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            eventId,
+            coupleNames,
+            phone,
+            email,
+            city,
+            month,
+            insta,
+            url: window.location.href
+          })
+        }).catch(() => {});
       } catch (e) {}
 
       const msg = `Namaste! Interested in a modern wedding website from The Cool Shaadi.\n\n👤 ${coupleNames}\n📱 ${phone}\n📸 ${insta || 'N/A'}\n📍 ${city}\n🗓️ ${month}\n\nPlease share samples & pricing!`;
