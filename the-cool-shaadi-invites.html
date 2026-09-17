@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;0,6..96,900;1,6..96,500;1,6..96,700&family=Space+Grotesk:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; background:#1a0620; }
+  body {
+    font-family:'Space Grotesk', system-ui, sans-serif;
+    color:#f5e6c8;
+    -webkit-font-smoothing:antialiased;
+    font-size:16px;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  * { box-sizing:border-box; }
+  a { color:inherit; text-decoration:none; }
+  ::selection { background:#ff2e7e; color:#1a0620; }
+  input, select, textarea, button { font-family:inherit; }
+  input:focus, select:focus, textarea:focus, button:focus { outline:none; }
+
+  @keyframes marigold-spin { to { transform: rotate(360deg); } }
+  @keyframes marquee-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes bloom { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+  @keyframes shimmer-line { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+
+  /* Marigold garland via CSS — no SVG art */
+  .garland {
+    height:34px;
+    background-image:
+      radial-gradient(circle at 12px 17px, #ffb400 0 8px, #d97706 8px 11px, transparent 12px),
+      radial-gradient(circle at 12px 17px, #ff2e7e 0 4px, transparent 5px);
+    background-size: 24px 34px;
+    background-repeat: repeat-x;
+    background-position: 0 0;
+  }
+  .grain::before {
+    content:''; position:absolute; inset:0; pointer-events:none;
+    background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 2px 2px; mix-blend-mode: overlay;
+  }
+</style>
+</helmet>
+
+<div style="position:relative; max-width:520px; margin:0 auto; background: linear-gradient(180deg, #1a0620 0%, #2a0a2f 40%, #1a0620 100%); min-height:100vh;">
+
+  <!-- HEADER -->
+  <header style="display:flex; align-items:center; justify-content:space-between; padding:18px 22px; border-bottom:1px solid rgba(245,230,200,0.12);">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div style="position:relative; width:34px; height:34px; display:flex; align-items:center; justify-content:center;">
+        <div style="position:absolute; inset:0; background:
+          conic-gradient(from 0deg,
+            transparent 0deg 6deg, #ffb400 6deg 12deg,
+            transparent 12deg 36deg, #ffb400 36deg 42deg,
+            transparent 42deg 66deg, #ffb400 66deg 72deg,
+            transparent 72deg 96deg, #ffb400 96deg 102deg,
+            transparent 102deg 126deg, #ffb400 126deg 132deg,
+            transparent 132deg 156deg, #ffb400 156deg 162deg,
+            transparent 162deg 186deg, #ffb400 186deg 192deg,
+            transparent 192deg 216deg, #ffb400 216deg 222deg,
+            transparent 222deg 246deg, #ffb400 246deg 252deg,
+            transparent 252deg 276deg, #ffb400 276deg 282deg,
+            transparent 282deg 306deg, #ffb400 306deg 312deg,
+            transparent 312deg 336deg, #ffb400 336deg 342deg,
+            transparent 342deg 360deg);
+          filter: drop-shadow(0 0 6px rgba(255,180,0,0.6));"></div>
+        <div style="position:relative; width:18px; height:18px; border-radius:50%; background:radial-gradient(circle at 35% 35%, #ffd54a 0%, #ffb400 55%, #d97706 100%); box-shadow:0 0 12px rgba(255,180,0,0.7);"></div>
+      </div>
+      <div style="line-height:1;">
+        <div style="font-family:'Yatra One',serif; font-size:16px; color:#ffb400; letter-spacing:0.02em;">कूल शादी</div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:9px; letter-spacing:0.28em; color:#f5e6c8; opacity:0.6; margin-top:2px;">THE COOL SHAADI ATELIER</div>
+      </div>
+    </div>
+    <a href="#inquire" style="font-family:'Space Grotesk',sans-serif; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:#ff2e7e; font-weight:600;">Book →</a>
+  </header>
+
+  <!-- HERO -->
+  <section style="padding:36px 22px 44px; position:relative; overflow:hidden;">
+    <!-- decorative burst -->
+    <div style="position:absolute; top:-80px; right:-80px; width:280px; height:280px; border-radius:50%; background:radial-gradient(circle, rgba(255,46,126,0.35) 0%, transparent 65%); pointer-events:none;"></div>
+    <div style="position:absolute; bottom:20px; left:-100px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle, rgba(255,180,0,0.25) 0%, transparent 65%); pointer-events:none;"></div>
+
+    <div style="position:relative;">
+      <h1 style="font-family:'Yatra One',serif; font-weight:400; font-size: clamp(50px, 14vw, 82px); line-height:0.95; letter-spacing:-0.01em; margin:0; color:#f5e6c8;">
+        Your<br>
+        <span style="color:#ff2e7e;">Shaadi.</span><br>
+        Not another<br>
+        <span style="text-decoration:line-through; text-decoration-color:#ffb400; text-decoration-thickness:4px; opacity:0.75;">PDF.</span>
+      </h1>
+
+      <div style="font-family:'Yatra One',serif; font-size:22px; color:#ffb400; margin-top:22px; letter-spacing:0.01em;">एक निमंत्रण, आपकी कहानी।</div>
+      <p style="font-family:'Yatra One',serif; font-size:17px; color:#f5e6c8; opacity:0.85; margin:8px 0 28px; max-width:26ch; line-height:1.45;">An invitation your <span style="color:#ff88b8;">mausi</span> forwards, your friends screenshot, and your guests actually revisit.</p>
+
+      <!-- price + CTA -->
+      <div style="display:flex; align-items:stretch; gap:0; border:1px solid rgba(245,230,200,0.2); border-radius:2px; overflow:hidden; margin-bottom:22px;">
+        <div style="flex:1; padding:14px 18px; background:rgba(255,255,255,0.03);">
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:9.5px; letter-spacing:0.2em; text-transform:uppercase; color:#f5e6c8; opacity:0.55;">All-in from</div>
+          <div style="font-family:'Yatra One',serif; font-size:30px; color:#ffb400; line-height:1;">
+            ₹3,999
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:500; color:#f5e6c8; opacity:0.4; text-decoration:line-through; margin-left:6px;">₹8,999</span>
+          </div>
+        </div>
+        <a href="#inquire" style="display:flex; align-items:center; justify-content:center; padding:0 22px; background:#ff2e7e; color:#1a0620; font-family:'Space Grotesk',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase;">
+          Begin →
+        </a>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:16px; font-family:'Space Grotesk',sans-serif; font-size:12px; color:#f5e6c8; opacity:0.7;">
+        <span><b style="color:#ffb400;">★ 4.9</b> · 120 couples</span>
+        <span style="opacity:0.4;">/</span>
+        <span>48h delivery</span>
+        <span style="opacity:0.4;">/</span>
+        <span>1-tap RSVP</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marigold garland separator -->
+  <div class="garland" aria-hidden="true"></div>
+
+  <!-- ============ LIVE PREVIEW ============ -->
+  <section id="preview" style="padding:44px 22px 50px; text-align:center; position:relative;">
+    <div style="font-family:'Space Grotesk',sans-serif; font-size:10px; letter-spacing:0.3em; color:#ff88b8; text-transform:uppercase; font-weight:600; margin-bottom:10px;">◆ Live specimen ◆</div>
+    <h2 style="font-family:'Yatra One',serif; font-weight:400; font-size:32px; line-height:1.1; color:#f5e6c8; margin:0 0 6px;">Rohan &amp; Aishwarya's</h2>
+    <div style="font-family:'Yatra One',serif; font-size:20px; color:#ffb400; margin-bottom:26px;">— as their guests see it.</div>
+
+    <div style="position:relative; width:250px; margin:0 auto; padding:9px; background:linear-gradient(145deg,#2a0a2f,#1a0620); border-radius:36px; border:1px solid rgba(255,180,0,0.3); box-shadow:0 20px 60px -10px rgba(255,46,126,0.4), 0 0 0 1px rgba(245,230,200,0.05) inset;">
+      <div style="position:absolute; top:20px; left:50%; transform:translateX(-50%); width:70px; height:6px; border-radius:6px; background:#000; z-index:2;"></div>
+      <div style="position:relative; border-radius:28px; overflow:hidden; background:#000; aspect-ratio: 9/19.5;">
+        <video id="preview-recording-video" autoplay loop muted playsinline preload="auto" style="width:100%; height:100%; object-fit:cover; display:block;">
+          <source src="preview-recording.mp4" type="video/mp4">
+          <source src="preview-recording.mov" type="video/quicktime">
+          <source src="Screen%20Recording%202026-09-16%20at%207.34.37%E2%80%AFPM.mov" type="video/quicktime">
+        </video>
+        <button id="video-toggle-mute" type="button" aria-label="Unmute" style="position:absolute; bottom:14px; right:14px; width:38px; height:38px; border-radius:50%; border:none; background:#ff2e7e; color:#1a0620; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0; box-shadow:0 4px 14px rgba(255,46,126,0.5);">
+          <svg id="mute-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73 4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div style="margin-top:18px; font-family:'Space Grotesk',sans-serif; font-size:12px; color:#f5e6c8; opacity:0.6;">tap the pink button — hear the sitar.</div>
+  </section>
+
+  <!-- ============ WHY / PERKS ============ -->
+  <section style="padding:50px 22px 50px; background:#0f0210; border-top:1px solid rgba(255,180,0,0.15); border-bottom:1px solid rgba(255,180,0,0.15); position:relative;" class="grain">
+    <div style="font-family:'Space Grotesk',sans-serif; font-size:10px; letter-spacing:0.3em; color:#ffb400; text-transform:uppercase; margin-bottom:14px; font-weight:600;">§ What you get</div>
+
+    <h2 style="font-family:'Yatra One',serif; font-weight:400; font-size:44px; line-height:1; color:#f5e6c8; margin:0 0 28px;">
+      Twelve things<br>the printer<br><span style="color:#ff2e7e;">can't do.</span>
+    </h2>
+
+    <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:1px; background:rgba(245,230,200,0.12); border:1px solid rgba(245,230,200,0.12);">
+      <sc-for list="{{ perks }}" as="perk" hint-placeholder-count="12">
+        <div style="background:#0f0210; padding:20px 16px; display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; align-items:baseline; gap:8px;">
+            <span style="font-family:'Bodoni Moda',serif; font-style:italic; font-weight:900; font-size:22px; color:#ffb400; line-height:1;">{{ perk.n }}</span>
+            <span style="flex:1; height:1px; background:rgba(255,180,0,0.3); align-self:center;"></span>
+          </div>
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:700; color:#f5e6c8; line-height:1.2;">{{ perk.title }}</div>
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:12px; color:#f5e6c8; opacity:0.55; line-height:1.4;">{{ perk.body }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIAL — MARQUEE ============ -->
+  <section style="padding:44px 0 50px; overflow:hidden;">
+    <div style="padding:0 22px;">
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:10px; letter-spacing:0.3em; color:#ff88b8; text-transform:uppercase; margin-bottom:12px; font-weight:600;">§ From the marriage register</div>
+      <h2 style="font-family:'Yatra One',serif; font-weight:400; font-size:42px; line-height:1; color:#f5e6c8; margin:0 0 6px;">120 <span style="color:#ff2e7e;">shaadis.</span></h2>
+      <div style="font-family:'Yatra One',serif; font-size:20px; color:#ffb400; margin-bottom:26px;">और गिनती जारी है।</div>
+    </div>
+
+    <div style="mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);">
+      <div id="testimonials-track" style="display:flex; gap:14px; width:max-content; animation: marquee-x 40s linear infinite; padding:0 22px;"></div>
+    </div>
+  </section>
+
+  <!-- Marigold garland separator -->
+  <div class="garland" aria-hidden="true"></div>
+
+  <!-- ============ HOW IT WORKS — 3 steps ============ -->
+  <section style="padding:44px 22px 40px;">
+    <div style="font-family:'Space Grotesk',sans-serif; font-size:10px; letter-spacing:0.3em; color:#ffb400; text-transform:uppercase; margin-bottom:12px; font-weight:600;">§ In three moves</div>
+    <h2 style="font-family:'Yatra One',serif; font-weight:400; font-size:40px; line-height:1; color:#f5e6c8; margin:0 0 30px;">From <span style="color:#ffb400;">hello</span><br>to <span style="color:#ff2e7e;">ho gayi shaadi.</span></h2>
+
+    <div style="display:flex; flex-direction:column; gap:0;">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+        <div style="display:grid; grid-template-columns:64px 1fr; gap:16px; padding:22px 0; border-top:1px solid rgba(245,230,200,0.15);">
+          <div style="font-family:'Yatra One',serif; font-size:48px; color:#ff2e7e; line-height:0.9;">{{ s.n }}</div>
+          <div>
+            <div style="font-family:'Bodoni Moda',serif; font-style:italic; font-weight:700; font-size:22px; color:#f5e6c8; margin-bottom:6px;">{{ s.title }}</div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:14px; color:#f5e6c8; opacity:0.6; line-height:1.5;">{{ s.body }}</div>
+          </div>
+        </div>
+      </sc-for>
+      <div style="border-top:1px solid rgba(245,230,200,0.15);"></div>
+    </div>
+  </section>
+
+  <!-- ============ FORM ============ -->
+  <section id="inquire" style="padding:44px 22px 50px; background:linear-gradient(180deg, #2a0a2f 0%, #1a0620 100%); position:relative; overflow:hidden;">
+    <div style="position:absolute; top:-60px; right:-60px; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle, rgba(255,180,0,0.3) 0%, transparent 65%); pointer-events:none;"></div>
+
+    <div style="position:relative;">
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:10px; letter-spacing:0.3em; color:#ff88b8; text-transform:uppercase; margin-bottom:12px; font-weight:600;">§ Reserve your slot</div>
+      <h2 style="font-family:'Yatra One',serif; font-weight:400; font-size:44px; line-height:1; color:#f5e6c8; margin:0 0 8px;">Tell us<br>about your <span style="color:#ff2e7e;">day.</span></h2>
+      <p style="font-family:'Yatra One',serif; font-size:16px; color:#f5e6c8; opacity:0.85; margin:0 0 26px; line-height:1.45;">We reply on WhatsApp within 15 minutes with samples, options, and honest pricing.</p>
+
+      <form id="inquiry-form" style="display:flex; flex-direction:column; gap:14px;">
+        <div>
+          <label style="display:block; font-family:'Space Grotesk',sans-serif; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#ffb400; margin-bottom:6px; font-weight:600;">Couple / Your name</label>
+          <input type="text" id="lead-couple-names" required placeholder="Rohan & Aishwarya" style="width:100%; padding:14px 0; background:transparent; border:none; border-bottom:1px solid rgba(245,230,200,0.3); color:#f5e6c8; font-size:16px; font-family:'Bodoni Moda',serif; font-style:italic;">
+        </div>
+        <div>
+          <label style="display:block; font-family:'Space Grotesk',sans-serif; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#ffb400; margin-bottom:6px; font-weight:600;">WhatsApp number</label>
+          <input type="tel" id="lead-phone" required placeholder="+91 98765 43210" style="width:100%; padding:14px 0; background:transparent; border:none; border-bottom:1px solid rgba(245,230,200,0.3); color:#f5e6c8; font-size:16px; font-family:'Bodoni Moda',serif; font-style:italic;">
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+          <div>
+            <label style="display:block; font-family:'Space Grotesk',sans-serif; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#ffb400; margin-bottom:6px; font-weight:600;">City</label>
+            <input type="text" id="lead-city" required placeholder="Delhi" style="width:100%; padding:14px 0; background:transparent; border:none; border-bottom:1px solid rgba(245,230,200,0.3); color:#f5e6c8; font-size:16px; font-family:'Bodoni Moda',serif; font-style:italic;">
+          </div>
+          <div>
+            <label style="display:block; font-family:'Space Grotesk',sans-serif; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#ffb400; margin-bottom:6px; font-weight:600;">Instagram</label>
+            <input type="text" id="lead-insta" placeholder="@yourhandle" style="width:100%; padding:14px 0; background:transparent; border:none; border-bottom:1px solid rgba(245,230,200,0.3); color:#f5e6c8; font-size:16px; font-family:'Bodoni Moda',serif; font-style:italic;">
+          </div>
+        </div>
+        <div>
+          <label style="display:block; font-family:'Space Grotesk',sans-serif; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#ffb400; margin-bottom:6px; font-weight:600;">Wedding date</label>
+          <select id="lead-month" style="width:100%; padding:14px 0; background:transparent; border:none; border-bottom:1px solid rgba(245,230,200,0.3); color:#f5e6c8; font-size:16px; font-family:'Bodoni Moda',serif; font-style:italic;">
+            <option style="background:#1a0620;" value="Nov - Dec 2026">Nov – Dec 2026</option>
+            <option style="background:#1a0620;" value="Jan - Feb 2027">Jan – Feb 2027</option>
+            <option style="background:#1a0620;" value="March - April 2027">March – April 2027</option>
+            <option style="background:#1a0620;" value="Late 2027">Late 2027</option>
+            <option style="background:#1a0620;" value="Dates Not Finalized Yet">Not finalised yet</option>
+          </select>
+        </div>
+        <input type="email" id="lead-email" placeholder="email (optional)" style="display:none;">
+
+        <button type="submit" style="margin-top:12px; padding:18px; background:#ff2e7e; color:#1a0620; border:none; font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; cursor:pointer; box-shadow:0 8px 30px -8px rgba(255,46,126,0.6);">
+          Submit Query →
+        </button>
+        <div style="font-family:'Yatra One',serif; font-size:14px; color:#ffb400; text-align:center;">we will reach out to discuss the project</div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Marigold garland separator -->
+  <div class="garland" aria-hidden="true"></div>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" style="padding:44px 22px 40px;">
+    <div style="font-family:'Space Grotesk',sans-serif; font-size:10px; letter-spacing:0.3em; color:#ffb400; text-transform:uppercase; margin-bottom:12px; font-weight:600;">§ Questions worth asking</div>
+    <h2 style="font-family:'Yatra One',serif; font-weight:400; font-size:42px; line-height:1; color:#f5e6c8; margin:0 0 24px;">Before you<br><span style="color:#ff2e7e;">say haan.</span></h2>
+
+    <div>
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+        <details style="border-top:1px solid rgba(245,230,200,0.15); padding:18px 0;">
+          <summary style="display:flex; align-items:center; justify-content:space-between; cursor:pointer; list-style:none; font-family:'Bodoni Moda',serif; font-style:italic; font-weight:500; font-size:19px; color:#f5e6c8; line-height:1.25;">
+            <span>{{ f.q }}</span>
+            <span style="color:#ff2e7e; font-family:'Yatra One',serif; font-size:24px; margin-left:12px;">+</span>
+          </summary>
+          <p style="font-family:'Space Grotesk',sans-serif; font-size:14px; color:#f5e6c8; opacity:0.65; line-height:1.6; margin:12px 0 0;">{{ f.a }}</p>
+        </details>
+      </sc-for>
+      <div style="border-top:1px solid rgba(245,230,200,0.15);"></div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="padding:40px 22px 100px; text-align:center; border-top:1px solid rgba(255,180,0,0.2);">
+    <div style="font-family:'Yatra One',serif; font-size:28px; color:#ffb400; margin-bottom:6px;">कूल शादी</div>
+    <div style="font-family:'Yatra One',serif; font-size:15px; color:#f5e6c8; opacity:0.7;">handset in Delhi, sent worldwide.</div>
+    <div style="margin-top:20px; font-family:'Space Grotesk',sans-serif; font-size:11px; letter-spacing:0.18em; color:#f5e6c8; opacity:0.4; text-transform:uppercase;">© 2026 · all rights reserved</div>
+  </footer>
+
+  <!-- STICKY MOBILE BAR -->
+  <div id="sticky-mobile-cta" style="position:fixed; bottom:0; left:0; right:0; z-index:99; padding:12px 18px; background:rgba(15,2,16,0.96); backdrop-filter:blur(14px); border-top:1px solid #ff2e7e; display:flex; align-items:center; justify-content:space-between; transform:translateY(100%); transition:transform 0.35s cubic-bezier(0.16,1,0.3,1);">
+    <div style="line-height:1.1;">
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#f5e6c8; opacity:0.55;">Starting from</div>
+      <div style="font-family:'Yatra One',serif; font-size:22px; color:#ffb400;">₹3,999 <span style="font-size:11px; color:#f5e6c8; opacity:0.4; text-decoration:line-through; font-weight:500; font-family:'Space Grotesk',sans-serif;">₹8,999</span></div>
+    </div>
+    <a href="#inquire" style="padding:12px 20px; background:#ff2e7e; color:#1a0620; font-family:'Space Grotesk',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase;">Book →</a>
+  </div>
+
+  <!-- SUCCESS MODAL -->
+  <div id="success-modal" style="display:none; position:fixed; inset:0; background:rgba(15,2,16,0.9); backdrop-filter:blur(8px); z-index:1000; align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#1a0620; border:1px solid #ff2e7e; padding:32px 26px; max-width:420px; width:100%; text-align:center; box-shadow:0 20px 80px rgba(255,46,126,0.3);">
+      <div style="font-family:'Yatra One',serif; font-size:40px; color:#ffb400; margin-bottom:8px;">✽</div>
+      <h3 style="font-family:'Yatra One',serif; font-weight:400; font-size:28px; color:#f5e6c8; margin:0 0 10px;">Received.</h3>
+      <p id="modal-summary-text" style="font-family:'Space Grotesk',sans-serif; font-size:14px; color:#f5e6c8; opacity:0.7; margin:0 0 22px; line-height:1.5;">Tap below to continue the conversation on WhatsApp — we'll share samples in 15 minutes.</p>
+      <a href="#" target="_blank" id="modal-whatsapp-direct" style="display:block; padding:16px; background:#ff2e7e; color:#1a0620; font-family:'Space Grotesk',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; margin-bottom:10px;">Open WhatsApp →</a>
+      <button type="button" id="modal-close-btn" style="width:100%; padding:12px; background:transparent; color:#f5e6c8; border:1px solid rgba(245,230,200,0.3); font-family:'Space Grotesk',sans-serif; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; cursor:pointer;">Close</button>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this.renderTestimonials();
+    this.bindForm();
+    this.bindMute();
+    this.bindStickyBar();
+    this.bindModal();
+  }
+
+  renderVals() {
+    return {
+      perks: [
+        { n: '01', title: 'WhatsApp RSVP', body: 'One tap. No spreadsheets, no chasing.' },
+        { n: '02', title: 'Google Maps built-in', body: 'Every venue, tapped once — routes open.' },
+        { n: '03', title: 'Guest-level links', body: 'Sangeet for the college crew. Full week for family.' },
+        { n: '04', title: 'Your love story', body: 'Timelines, photos, city moves — set by us, in your voice.' },
+        { n: '05', title: 'Muhurat countdown', body: 'A live clock ticking to the auspicious hour.' },
+        { n: '06', title: 'Ambient sitar', body: 'Optional soundtrack — from tabla to lo-fi.' },
+        { n: '07', title: 'Matching PDF card', body: 'For the elders who still like a card in hand.' },
+        { n: '08', title: 'Devanagari, done right', body: 'Real shlokas. Real fonts. Not clip-art.' },
+        { n: '09', title: 'Hidden delights', body: 'Marigold showers, your pet dog, a diya you can light.' },
+        { n: '10', title: '48-hour delivery', body: 'Send your details Monday, share the link Wednesday.' },
+        { n: '11', title: 'Lives forever', body: 'Bookmarkable years later. Not a PDF in a chat.' },
+        { n: '12', title: '3 iterations, for free', body: 'Change your mind on colours, copy, or the reception time? Three rounds are on the house.' },
+      ],
+      steps: [
+        { n: '०१', title: 'Send us the story.', body: 'Names, dates, venues, a few photos. WhatsApp works. So does the form above.' },
+        { n: '०२', title: 'We set it by hand.', body: 'Type, colour, layout, music — chosen for your two, not generated for anyone.' },
+        { n: '०३', title: 'Share the link.', body: 'One tap on WhatsApp. Watch RSVPs come in. Print the matching PDF for the daadis.' },
+      ],
+      faqs: [
+        { q: "What's in the ₹3,999?", a: "That's the base plan for the template attached in the video above. For custom and more interactive material, additional charges apply." },
+        { q: 'How long does it stay live?', a: 'Forever. Your children can bookmark it. Your grandchildren can screenshot it.' },
+        { q: 'How fast can you deliver?', a: 'As fast as 48 hours to 1 week. Depending on expectations.' },
+        { q: 'Can different guests see different events?', a: 'Yes. Each guest can get a link tailored to what they\'re invited to. Sangeet-only, full-week, family-only — you decide.' },
+        { q: 'Can we customise Hindi text, music, colours?', a: 'Everything is customised. That\'s the point — nothing here is a template with your names dropped in.' },
+      ],
+      quotes: [
+        { text: 'Our guests literally called us saying it was the prettiest invite they\'d ever seen. The personalised links were genius.', who: 'Rohan & Aishwarya', where: 'Delhi' },
+        { text: 'Saved us ₹45,000 on printing and couriers. The maps and RSVP made it effortless for outstation family.', who: 'Aditya & Tanya', where: 'Mumbai' },
+        { text: 'The Know-the-Couple story made it deeply personal. It\'s a keepsake, not just an invite. Worth ten times the price.', who: 'Kabir & Meera', where: 'Jaipur' },
+        { text: 'Fast on mobile, gorgeous typography, and the hidden dog easter egg had everyone smiling.', who: 'Arjun & Pooja', where: 'Bengaluru' },
+        { text: 'Delivered in 36 hours flat. Sharing on WhatsApp was a dream. Tracking RSVPs made mum happy.', who: 'Varun & Sneha', where: 'Chandigarh' },
+        { text: 'Ambient sitar, the countdown, the seamless RSVP — no PDF getting lost in a WhatsApp thread ever again.', who: 'Dev & Ishita', where: 'Ahmedabad' },
+      ],
+    };
+  }
+
+  renderTestimonials() {
+    const track = document.getElementById('testimonials-track');
+    if (!track) return;
+    const quotes = this.renderVals().quotes;
+    const html = [...quotes, ...quotes].map(q => `
+      <figure style="width:280px; flex-shrink:0; margin:0; padding:22px 20px; background:rgba(245,230,200,0.04); border:1px solid rgba(245,230,200,0.12); display:flex; flex-direction:column; gap:14px;">
+        <div style="font-family:'Yatra One',serif; font-size:17px; line-height:1.4; color:#f5e6c8;">
+          <span style="color:#ff2e7e;">"</span>${q.text}<span style="color:#ff2e7e;">"</span>
+        </div>
+        <figcaption style="display:flex; align-items:center; gap:10px; margin-top:auto;">
+          <span style="width:20px; height:1px; background:#ffb400;"></span>
+          <span style="font-family:'Space Grotesk',sans-serif; font-size:11px; letter-spacing:0.14em; color:#ffb400; text-transform:uppercase; font-weight:600;">${q.who}</span>
+          <span style="font-family:'Space Grotesk',sans-serif; font-size:11px; color:#f5e6c8; opacity:0.5;">${q.where}</span>
+        </figcaption>
+      </figure>
+    `).join('');
+    track.innerHTML = html;
+  }
+
+  bindForm() {
+    const WA = '919818673111';
+    const form = document.getElementById('inquiry-form');
+    if (!form) return;
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = id => (document.getElementById(id) || {}).value || '';
+      const coupleNames = val('lead-couple-names') || 'Couple';
+      const phone = val('lead-phone');
+      const insta = val('lead-insta');
+      const city = val('lead-city');
+      const month = val('lead-month') || 'TBD';
+      const email = val('lead-email');
+      if (!phone || phone.trim().length < 8) {
+        alert('Please enter a valid WhatsApp number so we can send you samples.');
+        return;
+      }
+      try {
+        const stored = JSON.parse(localStorage.getItem('cool_shaadi_leads') || '[]');
+        stored.push({ coupleNames, phone, email, insta, city, month, ts: new Date().toISOString() });
+        localStorage.setItem('cool_shaadi_leads', JSON.stringify(stored));
+      } catch (err) {}
+      const msg = `Namaste! Interested in a modern wedding website from The Cool Shaadi.\n\n👤 ${coupleNames}\n📱 ${phone}\n📸 ${insta || 'N/A'}\n📍 ${city}\n🗓️ ${month}\n\nPlease share samples & pricing!`;
+      const wa = `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+      const modal = document.getElementById('success-modal');
+      const link = document.getElementById('modal-whatsapp-direct');
+      const summary = document.getElementById('modal-summary-text');
+      if (summary) summary.textContent = `Thank you ${coupleNames}. We've noted ${city}. Tap below to continue on WhatsApp — samples land in 15 minutes.`;
+      if (link) link.setAttribute('href', wa);
+      if (modal) modal.style.display = 'flex';
+      else window.open(wa, '_blank');
+      form.reset();
+    });
+  }
+
+  bindMute() {
+    const video = document.getElementById('preview-recording-video');
+    const btn = document.getElementById('video-toggle-mute');
+    const icon = document.getElementById('mute-icon');
+    if (!video || !btn) return;
+    const mutedSVG = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73 4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>';
+    const loudSVG = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>';
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      video.muted = !video.muted;
+      if (icon) icon.innerHTML = video.muted ? mutedSVG : loudSVG;
+      if (!video.muted) video.play().catch(()=>{});
+    });
+    video.play().catch(()=>{});
+    document.addEventListener('click', () => video.play().catch(()=>{}), { once: true });
+  }
+
+  bindStickyBar() {
+    const bar = document.getElementById('sticky-mobile-cta');
+    if (!bar) return;
+    const onScroll = () => {
+      if (window.scrollY > 500) bar.style.transform = 'translateY(0)';
+      else bar.style.transform = 'translateY(100%)';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  bindModal() {
+    const modal = document.getElementById('success-modal');
+    const close = document.getElementById('modal-close-btn');
+    if (!modal || !close) return;
+    close.addEventListener('click', () => modal.style.display = 'none');
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+  }
+}
+
+</script>
+</body>
+</html>
